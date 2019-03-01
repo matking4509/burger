@@ -25,7 +25,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burger", function(req, res) {
-    burgerCon.create(["name", "sleepy"], [req.body.name, req.body.sleepy], function(result) {
+    burgerCon.create(["burger_name"], [req.body.burger_name], function(result) {
     // Send back the ID of the new quote
         res.json({ id: result.insertId });
   });
@@ -34,9 +34,8 @@ router.post("/api/burger", function(req, res) {
 router.put("/api/burger/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   console.log("condition", condition);
-  burgerCon.update(
-    {
-      sleepy: req.body.sleepy
+  burgerCon.update({
+      burger_name: req.body.burgername
     },
     condition,
     function(result) {
