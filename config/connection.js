@@ -18,7 +18,7 @@ var source = {
   }
 };
 
-var connection = mysql.createConnection(source.jaws)
+var connection = mysql.createConnection()
 
 // Make connection.
 connection.connect(function(err) {
