@@ -17,7 +17,7 @@ var burgerCon = require("../models/burger");
 router.get("/", function(req, res) {
     burgerCon.all(function(data) {
         var hbsObject = {
-        cats: data
+        burgers: data
         };
         console.log(hbsObject);
         res.render("index", hbsObject);
@@ -35,7 +35,8 @@ router.put("/api/burger/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   console.log("condition", condition);
   burgerCon.update({
-      burger_name: req.body.burgername
+      burger_name: req.body.burger_name,
+      devoured: req.body.devoured
     },
     condition,
     function(result) {
